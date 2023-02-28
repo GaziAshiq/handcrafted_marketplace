@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="product-detail">
+        <div class="product-image">
+            <img src="{{ product.resized_image.url }}" alt="{{ product.name }}" style="max-width: 100%; height: auto;">
+        </div>
+        <div class="product-info">
+            <h1>{{ product.name }}</h1>
+            <p class="price">${{ product.price }}</p>
+            <p>{{ product.description }}</p>
+        </div>
+    </div>
+{% endblock %}

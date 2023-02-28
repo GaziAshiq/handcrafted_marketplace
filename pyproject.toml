@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "handcrafted-marketplace"
+version = "0.1.0"
+description = ""
+authors = ["Gazi Ashiq <gaziashiq.dev@gmail.com>"]
+readme = "README.md"
+packages = [{include = "handcrafted_marketplace"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.1.7"
+djangorestframework = "^3.14.0"
+django-cors-headers = "^3.13.0"
+mysqlclient = "^2.1.1"
+pillow = "^9.4.0"
+django-imagekit = "^4.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Django
+*.log
+*.pot
+db.sqlite3
+media/
+staticfiles/
+.env
+migrations/
+
+# MySQL
+*.mysql
+*.pid
+
+# Pycharm
+*.idea
