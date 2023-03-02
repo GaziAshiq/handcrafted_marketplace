@@ -46,8 +46,3 @@ class Product(models.Model):
 def set_slug(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = instance.generate_unique_slug()
-
-
-product = Product.objects.all()[0]
-print(product.resized_image.url)
-print(product.resized_image.width)
