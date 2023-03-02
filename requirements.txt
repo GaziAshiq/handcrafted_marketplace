@@ -10,6 +10,7 @@ gunicorn==20.1.0
 -e git+https://github.com/GaziAshiq/handcrafted_marketplace.git@01078353426c5fb0d6c972e9c4aa20bcdde3d8e6#egg=handcrafted_marketplace
 mysqlclient==2.1.1
 pilkit==2.0
+psycopg2-binary==2.8.6
 Pillow==9.4.0
 pytz==2022.7.1
 six==1.16.0
