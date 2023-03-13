@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import environ
 import dj_database_url
+import cloudinary_storage
 
 env = environ.Env()
 environ.Env.read_env()
@@ -43,8 +44,8 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     # ... other apps ...
     'imagekit',
-    'cloudinary_storage',
     'cloudinary',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -132,7 +133,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/'
+if DEBUG:
+    MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 if not DEBUG:
