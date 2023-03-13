@@ -11,8 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-
+import environ
 import dj_database_url
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +30,8 @@ SECRET_KEY = 'django-insecure-v!)9fuf@irm*kip23x33v%b9udl2+ay3_ecogco(@-myy5*o^q
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://127.0.0.1', 'handcraftedmarketplace-production.up.railway.app']
+# ALLOWED_HOSTS = ['127.0.0.1', 'handcraftedmarketplace-production.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -75,8 +79,6 @@ WSGI_APPLICATION = 'handcrafted_marketplace.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-os.environ[
-    'DATABASE_URL'] = 'postgres://handcrafted_marketplace_user:1WNfA19BWrpGiYoGaP77BYtQsJmz7Kys@dpg-cg06nst269vdqr8184n0-a.singapore-postgres.render.com/handcrafted_marketplace'
 if DEBUG:
     DATABASES = {
         'default': {
@@ -90,9 +92,7 @@ if DEBUG:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(
-            os.environ.get('DATABASE_URL')
-        )
+        'default': dj_database_url.parse(env('DATABASE_URL'))
     }
 
 # Password validation
