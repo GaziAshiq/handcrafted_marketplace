@@ -6,10 +6,10 @@ __pycache__/
 *.log
 *.pot
 db.sqlite3
-media/
-staticfiles/
 .env
 migrations/
+media/CACHE
+media/products
 
 # MySQL
 *.mysql
