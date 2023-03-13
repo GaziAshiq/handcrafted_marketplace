@@ -8,8 +8,7 @@ __pycache__/
 db.sqlite3
 .env
 migrations/
-media/CACHE
-media/products
+media/
 
 # MySQL
 *.mysql
