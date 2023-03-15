@@ -117,18 +117,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if DEBUG:
-    MEDIA_URL = '/media/'
-else:
+if not DEBUG:
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': env('CLOUD_NAME'),
         'API_KEY': env('API_KEY'),
         'API_SECRET': env('API_SECRET'),
     }
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
-    MEDIA_URL = '/handcrafted_marketplace/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
