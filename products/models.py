@@ -15,9 +15,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, help_text='price for the product')
     quantity = models.IntegerField(help_text='quantity of the product in stock')
     image = models.ImageField(upload_to='products/images/', help_text='main image of the product')
-    resized_image = ImageSpecField(source='image',
-                                   processors=[ResizeToFit(500, 500)],
-                                   format='JPEG',
+    resized_image = ImageSpecField(source='image', processors=[ResizeToFit(500, 500)], format='JPEG',
                                    options={'quality': 99})
 
     class Meta:
