@@ -14,6 +14,8 @@ class Product(models.Model):
     description = models.TextField(help_text='brief description of the product')
     price = models.DecimalField(max_digits=10, decimal_places=2, help_text='price for the product')
     quantity = models.IntegerField(help_text='quantity of the product in stock')
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField(auto_now=True, editable=False)
     image = models.ImageField(upload_to='products/images/', help_text='main image of the product')
     resized_image = ImageSpecField(source='image', processors=[ResizeToFit(500, 500)], format='JPEG',
                                    options={'quality': 99})
